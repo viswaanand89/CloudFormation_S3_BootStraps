@@ -1,17 +1,17 @@
 Resources:
-bootstrapbucketnested:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: 'bootstrapbucketnested'
-      BucketEncryption: 
-        ServerSideEncryptionConfiguration:
-          - ServerSideEncryptionByDefault:
-              SSEAlgorithm: 'AES256'
-resourcetemplatecfn:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: 'resourcetemplatecfn'
-      BucketEncryption: 
-        ServerSideEncryptionConfiguration:
-          - ServerSideEncryptionByDefault:
-              SSEAlgorithm: 'AES256'
+  bootstrapbucketnested:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: 'bootstrapbucketnested'
+        BucketEncryption: 
+          ServerSideEncryptionConfiguration:
+            - ServerSideEncryptionByDefault:
+                SSEAlgorithm: 'AES256'
+  resourcetemplatecfn:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: 'resourcetemplatecfn'
+        BucketEncryption: 
+          ServerSideEncryptionConfiguration:
+            - ServerSideEncryptionByDefault:
+                SSEAlgorithm: 'AES256'
