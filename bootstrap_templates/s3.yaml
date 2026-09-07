@@ -3,6 +3,9 @@ Resources:
       Type: AWS::S3::Bucket
       Properties:
         BucketName: 'bootstrapbucketnested'
+        NotificationConfiguration:
+          EventBridgeConfiguration:
+            EventBridgeEnabled: true
         BucketEncryption: 
           ServerSideEncryptionConfiguration:
             - ServerSideEncryptionByDefault:
