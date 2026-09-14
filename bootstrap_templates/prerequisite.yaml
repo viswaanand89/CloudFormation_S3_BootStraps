@@ -45,7 +45,3 @@ Resources:
           ServerSideEncryptionConfiguration:
             - ServerSideEncryptionByDefault:
                 SSEAlgorithm: 'AES256'
-
-Outputs:
-  Role:
-    Value: !GetAtt Role.Arn 
