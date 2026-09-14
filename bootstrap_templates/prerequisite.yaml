@@ -8,11 +8,6 @@ Parameters:
     Default: ""
     Type: String
 
-Conditions:
-  CreateOIDCProvider: !Equals 
-    - !Ref OIDCProviderArn
-    - ""
-
 Resources:
   GithubOidc:
     Type: AWS::IAM::OIDCProvider
