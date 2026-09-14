@@ -1,1 +1,5 @@
-template-file-path: ./bootstrap_templates/s3.yaml
+template-file-path: ./bootstrap_templates/prerequisite.yaml
+parameters: 
+   GitHubOrg: viswaanand89
+   RepositoryName: cloudformation-setup-bootstrap
+   OIDCProviderArn
