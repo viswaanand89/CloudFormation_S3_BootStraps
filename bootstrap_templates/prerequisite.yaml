@@ -27,21 +27,21 @@ Resources:
         - Key: Name
           Value: !Sub ${GitHubOrg}-${RepositoryName}-oidc-provider
   bootstrapbucketnested:
-      Type: AWS::S3::Bucket
-      Properties:
-        BucketName: 'bootstrapbucketnested'
-        NotificationConfiguration:
-          EventBridgeConfiguration:
-            EventBridgeEnabled: true
-        BucketEncryption: 
-          ServerSideEncryptionConfiguration:
-            - ServerSideEncryptionByDefault:
-                SSEAlgorithm: 'AES256'
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: 'bootstrapbucketnested'
+      NotificationConfiguration:
+        EventBridgeConfiguration:
+          EventBridgeEnabled: true
+      BucketEncryption: 
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: 'AES256'
   resourcetemplatecfn:
-      Type: AWS::S3::Bucket
-      Properties:
-        BucketName: 'resourcetemplatecfn'
-        BucketEncryption: 
-          ServerSideEncryptionConfiguration:
-            - ServerSideEncryptionByDefault:
-                SSEAlgorithm: 'AES256'
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: 'resourcetemplatecfn'
+      BucketEncryption: 
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: 'AES256'
