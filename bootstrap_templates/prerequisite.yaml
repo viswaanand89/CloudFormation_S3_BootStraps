@@ -14,22 +14,6 @@ Conditions:
     - ""
 
 Resources:
-  Role:
-    Type: AWS::IAM::Role
-    Properties:
-      RoleName: !Sub ${GitHubOrg}-${RepositoryName}-role
-      AssumeRolePolicyDocument:
-        Statement:
-          - Effect: Allow
-            Action: sts:AssumeRoleWithWebIdentity
-            Principal:
-              Federated: !If 
-                - CreateOIDCProvider
-                - !Ref GithubOidc
-                - !Ref OIDCProviderArn
-            Condition:
-              StringLike:
-                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubOrg}/${RepositoryName}:*
   GithubOidc:
     Type: AWS::IAM::OIDCProvider
     Condition: CreateOIDCProvider
