@@ -17,7 +17,7 @@ Resources:
   Role:
     Type: AWS::IAM::Role
     Properties:
-      Name: !Sub ${GitHubOrg}-${RepositoryName}-role
+      RoleName: !Sub ${GitHubOrg}-${RepositoryName}-role
       AssumeRolePolicyDocument:
         Statement:
           - Effect: Allow
@@ -34,12 +34,14 @@ Resources:
     Type: AWS::IAM::OIDCProvider
     Condition: CreateOIDCProvider
     Properties:
-      Name: !Sub ${GitHubOrg}-${RepositoryName}-oidc
       Url: https://token.actions.githubusercontent.com
       ClientIdList: 
         - sts.amazonaws.com
       ThumbprintList:
         - 6938fd4d98bab03faadb97b34396831e3780aea1
+      Tags:
+        - Key: Name
+          Value: !Sub ${GitHubOrg}-${RepositoryName}-oidc-provider
   bootstrapbucketnested:
       Type: AWS::S3::Bucket
       Properties:
