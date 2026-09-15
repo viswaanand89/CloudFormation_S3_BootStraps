@@ -1,7 +1,6 @@
 Resources:
   GithubOidc:
     Type: AWS::IAM::OIDCProvider
-    Condition: CreateOIDCProvider
     Properties:
       Url: https://token.actions.githubusercontent.com
       ClientIdList: 
