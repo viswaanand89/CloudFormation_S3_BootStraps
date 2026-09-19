@@ -22,8 +22,11 @@ Resources:
               Federated: !Ref GithubOidc
             Condition:  
               StringLike:
-                token.actions.githubusercontent.com:sub: 'repo:viswaanand89/*:*'
-                token.actions.githubusercontent.com:aud: "sts.amazonaws.com"
+                token.actions.githubusercontent.com:sub: 
+                    - 'repo:viswaanand89/*:*'
+              StringEquals:
+                token.actions.githubusercontent.com:aud: 
+                    - "sts.amazonaws.com"
             Action: sts:AssumeRoleWithWebIdentity
   bootstrapbucketnested:
     Type: AWS::S3::Bucket
