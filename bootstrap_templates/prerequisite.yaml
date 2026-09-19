@@ -19,7 +19,10 @@ Resources:
         Statement:
           - Effect: Allow
             Principal:
-              Federated: !Ref Outputs.GitHubOIDCRoleArn
+              Federated: !Ref GithubOidc
+            Condition:  
+              StringLike:
+                token.actions.githubusercontent.com:sub: 'repo:viswaanand89/*:*'
             Action: sts:AssumeRole
   bootstrapbucketnested:
     Type: AWS::S3::Bucket
