@@ -23,7 +23,7 @@ Resources:
             Condition:  
               StringLike:
                 token.actions.githubusercontent.com:sub: 
-                    - 'repo:viswaanand89@32100328/cloudformation-setup-bootstrap@1358138897:*'
+                    - 'repo:viswaanand89/cloudformation-setup-bootstrap:*'
               StringEquals:
                 token.actions.githubusercontent.com:aud: 
                     - "sts.amazonaws.com"
