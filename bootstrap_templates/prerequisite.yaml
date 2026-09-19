@@ -10,6 +10,17 @@ Resources:
       Tags:
         - Key: Name
           Value: GitHubOIDCProvider
+  GitHubOIDCRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: GitHubOIDCRole
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Ref Outputs.GitHubOIDCRoleArn
+            Action: sts:AssumeRole
   bootstrapbucketnested:
     Type: AWS::S3::Bucket
     Properties:
@@ -29,3 +40,8 @@ Resources:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
               SSEAlgorithm: 'AES256'
+
+Outputs:
+  GitHubOIDCRoleArn:
+    Description: "ARN of the GitHub OIDC Role"
+    Value: !GetAtt GitHubOIDCRole.Arn
