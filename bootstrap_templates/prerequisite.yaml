@@ -28,7 +28,7 @@ Resources:
                 token.actions.githubusercontent.com:aud: 
                     - "sts.amazonaws.com"
             Action: sts:AssumeRoleWithWebIdentity
-      policies:
+      Policies:
         - PolicyName: GitHubOIDCRolePolicy
           PolicyDocument:
             Version: '2012-10-17'
