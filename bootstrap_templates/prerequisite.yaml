@@ -38,11 +38,17 @@ Resources:
                   - s3:PutObject
                   - s3:GetObject
                   - s3:ListBucket
+                  - cloudformation:ListStacks
+                  - cloudformation:DescribeStacks
+                  - cloudformation:CreateStack
+                  - cloudformation:UpdateStack
+                  - cloudformation:DeleteStack
                 Resource: 
                   - !Sub "arn:aws:s3:::bootstrapbucketnested"
                   - !Sub "arn:aws:s3:::bootstrapbucketnested/*"
                   - !Sub "arn:aws:s3:::resourcetemplatecfn"
                   - !Sub "arn:aws:s3:::resourcetemplatecfn/*"
+                  - !Sub "arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/*"
   bootstrapbucketnested:
     Type: AWS::S3::Bucket
     Properties:
